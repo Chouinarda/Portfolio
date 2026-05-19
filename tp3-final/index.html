@@ -65,9 +65,6 @@
                 id="prenom"
                 name="prenom"
                 required
-                autocomplete="given-name"
-                pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'\- ]*"
-                title="Le prénom peut contenir des lettres, espaces, tirets et apostrophes (ex. Paul-Émile, O'Hara)"
               />
             </div>
             <div class="champ">
@@ -77,9 +74,6 @@
                 id="nom"
                 name="nom"
                 required
-                autocomplete="family-name"
-                pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'\- ]*"
-                title="Le nom peut contenir des lettres, espaces, tirets et apostrophes (ex. Viger Tremblay)"
               />
             </div>
           </div>
@@ -113,8 +107,6 @@
                   name="indicatif"
                   required
                   maxlength="3"
-                  pattern="\d{3}"
-                  title="Code régional : 3 chiffres (ex. 514)"
                   placeholder="514"
                   aria-label="Code régional (3 chiffres)"
                 />
@@ -127,8 +119,6 @@
                   name="numero"
                   required
                   maxlength="7"
-                  pattern="\d{7}"
-                  title="Numéro de téléphone : 7 chiffres (ex. 5550123)"
                   placeholder="5550123"
                   aria-label="Numéro de téléphone (7 chiffres)"
                 />
@@ -216,8 +206,6 @@
               required
               autocomplete="postal-code"
               placeholder="A1A 1A1"
-              pattern="[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d|\d{5}"
-              title="Code postal canadien (A1A 1A1) ou code ZIP américain (11111)"
             />
           </div>
         </fieldset>
