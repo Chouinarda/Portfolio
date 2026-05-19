@@ -1,0 +1,426 @@
+@charset "UTF-8";
+/* @author Étudiant(e) - TP3 Formulaire Alaïa */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url(normalize.css);
+
+/**
+ * TABLE DES MATIÈRES
+ * Variables
+ * Reset / Base
+ * Accessibilité
+ * Page entête
+ * Formulaire conteneur
+ * Groupes / Fieldsets
+ * Légendes
+ * Champs texte & select
+ * Format radio (icônes)
+ * Téléphone
+ * Infolettre
+ * Bouton Commander
+ * Responsive
+ */
+
+/* ------- Variables ------- */
+:root {
+  --couleur-primaire: #c84b1f;       /* orange-brun principal */
+  --couleur-secondaire: #f5ede6;     /* fond clair saumon */
+  --couleur-tertiaire: #2d2340;      /* violet foncé entête */
+  --couleur-texte: #1a1a2e;
+  --couleur-texte-leger: #666;
+  --couleur-bordure: #d9cfc9;
+  --couleur-focus: #c84b1f;
+  --rayon: 8px;
+  --police-titre: 'Playfair Display', serif;
+  --police-corps: 'DM Sans', sans-serif;
+}
+
+/* ------- Reset / Base ------- */
+html { box-sizing: border-box; font-size: 62.5%; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  font-family: var(--police-corps);
+  font-size: 1.6rem;
+  color: var(--couleur-texte);
+  background-color: var(--couleur-tertiaire);
+  margin: 0;
+  padding: 0;
+}
+
+img { max-width: 100%; }
+
+/* ------- Accessibilité ------- */
+.screen-reader-only,
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.screen-reader-only.focusable:focus,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* ------- Page entête ------- */
+.page-entete {
+  background: linear-gradient(135deg, var(--couleur-tertiaire) 0%, #6b2d1a 100%);
+  color: #fff;
+  padding: 3rem 2rem 6rem;
+  text-align: left;
+}
+
+.surtitre {
+  font-family: var(--police-corps);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 0.75rem;
+}
+
+.page-entete h1 {
+  font-family: var(--police-titre);
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.page-entete h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: #e8845a;
+}
+
+/* ------- Formulaire conteneur ------- */
+.formulaire-conteneur {
+  background-color: var(--couleur-secondaire);
+  min-height: 100vh;
+}
+
+form {
+  background-color: #fff;
+  border-radius: var(--rayon) var(--rayon) 0 0;
+  margin: -3rem auto 0;
+  max-width: 580px;
+  padding: 2.4rem 2rem;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.12);
+}
+
+/* ------- Groupes / Fieldsets ------- */
+fieldset,
+.groupe {
+  border: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+fieldset + fieldset,
+fieldset + .groupe,
+.groupe + .groupe {
+  margin-top: 0.5rem;
+}
+
+/* ------- Légendes ------- */
+.groupe__legende {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--police-corps);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--couleur-texte);
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.groupe__icone {
+  width: 2.8rem;
+  height: 2.8rem;
+  background-color: var(--couleur-primaire);
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.groupe__separateur {
+  border: none;
+  border-top: 1px solid var(--couleur-bordure);
+  margin: 0 0 1.6rem;
+}
+
+/* ------- Champs texte & select ------- */
+.champ {
+  margin-bottom: 1.4rem;
+}
+
+.champ label,
+.champ > label {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--couleur-texte);
+}
+
+.indicateur {
+  font-weight: 400;
+  color: var(--couleur-texte-leger);
+  font-size: 1.3rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 100%;
+  border: 1.5px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  background-color: #fdf9f7;
+  font-family: var(--police-corps);
+  font-size: 1.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--couleur-texte);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--couleur-focus);
+  box-shadow: 0 0 0 3px rgba(200, 75, 31, 0.18);
+  background-color: #fff;
+}
+
+input::placeholder {
+  color: #b0a8a2;
+  font-weight: 300;
+}
+
+select {
+  background-image: url('../images/icon-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+/* Rangée côte à côte */
+.champs-rangee {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.champs-rangee .champ {
+  flex: 1;
+}
+
+/* ------- Format radio (icônes) ------- */
+.format-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.format-item {
+  position: relative;
+}
+
+/* Cacher le radio natif visuellement mais garder accessible */
+.format-item input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.format-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border: 1.5px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 1.4rem 1rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 500;
+  background-color: #fdf9f7;
+  transition: border-color 0.2s, background-color 0.2s;
+  text-align: center;
+}
+
+.format-icone {
+  width: 5rem;
+  height: 5rem;
+}
+
+/* Sélectionné */
+.format-item input[type="radio"]:checked + .format-label {
+  border-color: var(--couleur-primaire);
+  background-color: #fff0ea;
+}
+
+/* Focus clavier */
+.format-item input[type="radio"]:focus-visible + .format-label {
+  outline: 3px solid var(--couleur-primaire);
+  outline-offset: 2px;
+}
+
+/* Survol */
+.format-label:hover {
+  border-color: var(--couleur-primaire);
+  background-color: #fff5f0;
+}
+
+/* ------- Téléphone ------- */
+.telephone-groupe {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.champ--inline {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.champ--inline:first-child {
+  flex: 0 0 30%;
+}
+
+/* ------- Infolettre ------- */
+.groupe--infolettre {
+  background-color: #f5f0eb;
+  border-radius: var(--rayon);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.infolettre-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.infolettre-label input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: 0.15rem;
+  cursor: pointer;
+  accent-color: var(--couleur-primaire);
+}
+
+/* ------- Bouton Commander ------- */
+.soumission {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-commander {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--couleur-primaire);
+  color: #fff;
+  font-family: var(--police-corps);
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--rayon);
+  padding: 0.85rem 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-commander img {
+  width: 1.4rem;
+  height: 1.4rem;
+  filter: brightness(0) invert(1);
+}
+
+.btn-commander:hover {
+  background-color: #a63a15;
+}
+
+.btn-commander:focus-visible {
+  outline: 3px solid var(--couleur-primaire);
+  outline-offset: 3px;
+}
+
+.btn-commander:active {
+  transform: scale(0.98);
+}
+
+/* ------- Validations ------- */
+.icone {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url('../images/good-warning-error.png');
+  background-size: cover;
+  position: relative;
+  top: 3px;
+}
+.icone--ok { background-position: 0 0; }
+.icone--avertissement { background-position: 49px 0; }
+.icone--erreur { background-position: 99px 0; }
+
+/* ------- Responsive tablette et bureau ------- */
+@media (min-width: 600px) {
+  .page-entete {
+    padding: 4rem 3rem 7rem;
+  }
+
+  .page-entete h1 {
+    font-size: 4.8rem;
+  }
+
+  form {
+    border-radius: var(--rayon);
+    margin: -4rem auto 4rem;
+    padding: 3rem 3.2rem;
+  }
+
+  .format-liste {
+    flex-direction: row;
+    gap: 1.2rem;
+  }
+
+  .format-item {
+    flex: 1;
+  }
+
+  .format-label {
+    height: 100%;
+  }
+}

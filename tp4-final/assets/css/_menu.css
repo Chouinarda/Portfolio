@@ -1,0 +1,152 @@
+/**
+ * @author Étudiant(e) - TP4 Kampadejo
+**/
+
+/**
+ * TABLE DES MATIÈRES
+ * Base commune
+ * - Bouton du menu
+ * - Liste du menu
+ * - Liens du menu
+ * Styles conditionnels au JavaScript
+ */
+
+/****** Base commune *******/
+
+/* Bouton du menu */
+.nav__control {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: none;
+    padding: 10px;
+    min-width: 40px;
+    color: #fff;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+@media (min-width: 40rem) {
+    .nav__control {
+        display: none;
+    }
+}
+
+.nav__control:hover,
+.nav__control:active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.nav__control:focus {
+    outline: 3px solid var(--color-Y);
+    outline-offset: -5px;
+}
+
+/* Icône du bouton Menu/Fermer via pseudo-élément :before */
+.nav__control:before {
+    display: inline-block;
+    content: "";
+    width: 1em;
+    height: 1em;
+    background-image: url(../images/ico-fermer.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nav--closed .nav__control:before {
+    background-image: url(../images/ico-menu.svg);
+}
+
+/* Liste du menu */
+.nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-height: none;
+}
+
+@media (min-width: 40rem) {
+    .nav__list-item {
+        display: inline-block;
+    }
+}
+
+/* Liens du menu */
+.nav__link {
+    display: block;
+    padding: 5px 10px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.nav__link:link,
+.nav__link:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Mobile : survol jaune, focus bordure latérale jaune */
+.nav__link:hover {
+    color: var(--color-Y);
+    background-color: transparent;
+}
+
+.nav__link:focus {
+    outline: 3px solid var(--color-Y);
+    border-left: 3px solid var(--color-Y);
+}
+
+/* Bureau : survol couleur jaune, focus bordure inférieure jaune */
+@media (min-width: 40rem) {
+    .nav__link:hover {
+        color: var(--color-Y);
+        background-color: transparent;
+    }
+
+    .nav__link:focus {
+        outline: 3px solid var(--color-Y);
+        border-left: none;
+        border-bottom: 3px solid var(--color-Y);
+    }
+}
+
+.nav__link:active {
+    color: #fff;
+}
+
+/** État actif d'un lien de menu **/
+.nav__link--active {
+    border-left: 5px solid var(--color-Y);
+}
+
+@media (min-width: 40rem) {
+    .nav__link--active {
+        border-left: none;
+        border-bottom: 5px solid var(--color-Y);
+    }
+}
+
+/* Mobile : survol bouton de menu fond gris transparent, focus outline jaune */
+@media (max-width: 39.9375rem) {
+    .nav__control:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+}
+
+/* Styles conditionnels au JavaScript (amélioration progressive) */
+@media (max-width: 39.9375rem) {
+    .js .nav__list {
+        max-height: 100vh;
+        overflow: hidden;
+        transition: max-height 2s;
+    }
+
+    .js .nav--closed .nav__list {
+        max-height: 0;
+        transition: max-height 0.5s;
+    }
+}

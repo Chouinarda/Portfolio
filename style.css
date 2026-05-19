@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Jost:wght@300;400&family=Courier+Prime&display=swap');
+
+/* VARIABLES */
+:root {
+  --couleur-fond:    #f2ede4;
+  --couleur-carte:   #f8f5ef;
+  --couleur-bordure: #cdd6c5;
+  --couleur-vert:    #2d4a35;
+  --couleur-texte:   #1a2018;
+  --couleur-gris:    #6b7363;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+.body {
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0;
+  animation: entree 0.5s ease forwards;
+}
+
+@keyframes entree {
+  to { opacity: 1; }
+}
+
+.body.page-sortie {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* BANDES LATÉRALES */
+.bande-gauche,
+.bande-droite {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background-color: var(--couleur-vert);
+  z-index: 10;
+}
+
+.bande-gauche { left: 0; }
+.bande-droite { right: 0; }
+
+/* HEADER */
+.header {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 1.5rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.header__eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--couleur-gris);
+  margin-bottom: 1rem;
+}
+
+.header__p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--couleur-gris);
+}
+
+.header__h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.header__h1 span {
+  color: var(--couleur-vert);
+  font-style: italic;
+}
+
+/* MAIN */
+.main {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 1.5rem 4rem 1.5rem;
+}
+
+/* SECTION PRÉSENTATION */
+#section__presentation {
+  background-color: var(--couleur-carte);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 4px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+#section__presentation .main__h2 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--couleur-gris);
+  margin-bottom: 0.75rem;
+}
+
+#section__presentation .main__p {
+  color: var(--couleur-texte);
+}
+
+/* TITRE SECTION PROJETS */
+#section__projet .main__h2 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--couleur-gris);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--couleur-bordure);
+}
+
+/* CARTES TP — état de départ invisible */
+.section__tp {
+  background-color: var(--couleur-carte);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Quand JS ajoute .visible, la carte apparaît */
+.section__tp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* BANDEAU SEMAINE */
+.section__tp .main__h3:first-child {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--couleur-gris);
+  font-weight: 400;
+  padding: 0.6rem 1.25rem;
+  border-bottom: 1px solid var(--couleur-fond);
+}
+
+/* BADGE EXERCICE / TP */
+.section__tp .main__h3:nth-child(2) {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: var(--couleur-gris);
+  font-weight: 400;
+  padding: 0.6rem 1.25rem;
+}
+
+/* IMAGE */
+.main__img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: var(--couleur-bordure);
+}
+
+/* TITRE DU TP */
+.section__tp .h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.25rem 1.25rem 0.25rem 1.25rem;
+}
+
+/* SOUS-TITRE APPRENTISSAGES */
+.section__tp .h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: var(--couleur-gris);
+  font-weight: 400;
+  padding: 0.75rem 1.25rem 0.4rem 1.25rem;
+}
+
+/* TAGS */
+.liste__apprentissage {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0 1.25rem 0.75rem 1.25rem;
+}
+
+.apprentissage__element {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  background-color: var(--couleur-fond);
+  border: 1px solid var(--couleur-bordure);
+  padding: 0.2rem 0.6rem;
+}
+
+/* DESCRIPTION */
+.section__tp .main__p {
+  font-size: 0.9rem;
+  color: var(--couleur-gris);
+  padding: 0 1.25rem 1.25rem 1.25rem;
+}
+
+/* BOUTON */
+.main__button {
+  margin: 0 1.25rem 1.5rem 1.25rem;
+  padding: 0.45rem 0.9rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: var(--couleur-vert);
+  background-color: transparent;
+  border: 1px solid var(--couleur-vert);
+  cursor: pointer;
+}
+
+.main__button:hover {
+  background-color: var(--couleur-vert);
+  color: var(--couleur-fond);
+}
+
+/* TABLETTE */
+@media (max-width: 900px) {
+  .bande-gauche,
+  .bande-droite {
+    width: 30px;
+  }
+
+  .header__h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .bande-gauche,
+  .bande-droite {
+    display: none;
+  }
+
+  .header__h1 {
+    font-size: 2rem;
+  }
+
+  .section__tp .h2 {
+    font-size: 1.2rem;
+  }
+}

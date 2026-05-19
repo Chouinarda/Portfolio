@@ -1,0 +1,506 @@
+@charset "UTF-8";
+/**
+ * @author Marie-Andrée Gingras
+ *
+ * TABLE DES MATIÈRES
+ * 1. Utilitaires / Box-sizing
+ * 2. Charte typographique
+ * 3. Points de rupture (breakpoints)
+ * 4. En-tête (header)
+ * 5. Navigation principale
+ * 6. Contenu principal (main)
+ * 7. Section intro
+ * 8. Grille de cartes (3 colonnes)
+ * 9. Section bas (liens + infolettre)
+ * 10. Pied de page (footer)
+ */
+
+
+/* ============================================================
+   1. Utilitaires
+   ============================================================ */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ============================================================
+   2. Charte typographique
+   ============================================================ */
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #222;
+    background-color: #fff;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
+
+p {
+    margin-top: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+figcaption {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.25rem;
+}
+
+
+/* ============================================================
+   3. Points de rupture — typographie responsive
+   ============================================================ */
+
+@media (min-width: 40rem) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+}
+
+@media (min-width: 64rem) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; }
+    h3 { font-size: 1.875rem; }
+}
+
+
+/* ============================================================
+   4. En-tête
+   ============================================================ */
+
+.header {
+    width: 100%;
+}
+
+.header__inner {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+}
+
+.header__logo img {
+    max-height: 5rem;
+    width: auto;
+}
+
+.header__hero {
+    width: 100%;
+    overflow: hidden;
+}
+
+.header__figure {
+    margin: 0;
+    position: relative;
+}
+
+.header__figure img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.header__figcaption {
+    text-align: right;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    color: #666;
+    background-color: rgba(255,255,255,0.7);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+@media (min-width: 48rem) {
+    .header__figure img {
+        height: 22rem;
+    }
+}
+
+@media (min-width: 64rem) {
+    .header__figure img {
+        height: 28rem;
+    }
+}
+
+
+/* ============================================================
+   5. Navigation principale
+   ============================================================ */
+
+.nav__liste {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav__item {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.nav__lien {
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav__lien:hover,
+.nav__lien:focus {
+    color: #c0392b;
+}
+
+
+/* ============================================================
+   6. Contenu principal
+   ============================================================ */
+
+.main {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+/* ============================================================
+   7. Section intro (zone 3)
+   ============================================================ */
+
+.main__intro {
+    text-align: center;
+    padding: 2.5rem 1rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.main__h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+}
+
+.main__h2--intro {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    color: #333;
+}
+
+.main__p--intro {
+    max-width: 44rem;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+@media (min-width: 40rem) {
+    .main__h2--intro {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ============================================================
+   8. Grille de cartes — 3 colonnes (zone 4)
+   ============================================================ */
+
+.main__grille {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+@media (min-width: 48rem) {
+    .main__grille {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+.carte {
+    display: flex;
+    flex-direction: column;
+}
+
+.carte__header {
+    margin-bottom: 0.75rem;
+}
+
+.carte__h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #111;
+    line-height: 1.2;
+}
+
+@media (min-width: 64rem) {
+    .carte__h2 {
+        font-size: 1.375rem;
+    }
+}
+
+.carte__figure {
+    margin: 0 0 0.75rem 0;
+}
+
+.carte__figure img {
+    width: 100%;
+    height: 11rem;
+    object-fit: cover;
+}
+
+.carte__figure figcaption {
+    margin-top: 0.3rem;
+    font-size: 0.78rem;
+    color: #666;
+    line-height: 1.3;
+}
+
+.carte__p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+
+/* ============================================================
+   9. Section bas — liens + infolettre (zone 5)
+   ============================================================ */
+
+.main__bas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+@media (min-width: 48rem) {
+    .main__bas {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+.main__h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+ .main__liens {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin: 0;
+}
+
+.main__liens li {
+    margin-bottom: 0.35rem;
+}
+
+.main__lien {
+    color: #c0392b;
+    text-decoration: underline;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
+}
+
+.main__lien:hover,
+.main__lien:focus {
+    opacity: 0.7;
+}
+
+.main__infolettre p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.main__label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: #333;
+}
+
+.main__champ {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.main__input {
+    border: 1px solid #aaa;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    flex: 1;
+    min-width: 10rem;
+}
+
+.main__input:focus {
+    outline: 2px solid #c0392b;
+    outline-offset: 1px;
+    border-color: #c0392b;
+}
+
+.main__bouton {
+    background-color: #e0e0e0;
+    border: 1px solid #aaa;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.main__bouton:hover,
+.main__bouton:focus {
+    background-color: #c0392b;
+    color: #fff;
+    border-color: #c0392b;
+}
+
+
+/* ============================================================
+   10. Pied de page
+   ============================================================ */
+
+.footer {
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+}
+
+.footer__nav {
+    background-color: #333;
+    padding: 0.6rem 1rem;
+}
+
+.footer__liste {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 60rem;
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.footer__item {
+    flex: 1;
+    text-align: center;
+}
+
+.footer__lien {
+    display: block;
+    color: #ccc;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0.5rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer__lien:hover,
+.footer__lien:focus {
+    color: #fff;
+}
+
+.footer__lien--actif {
+    color: #c0392b;
+}
+
+.footer__sources {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1.75rem 1rem 1rem;
+}
+
+.footer__h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: #111;
+}
+
+.footer__liste-sources {
+    padding-left: 1.25rem;
+    margin: 0;
+}
+
+.footer__liste-sources li {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+.footer__lien-source {
+    color: #c0392b;
+    word-break: break-all;
+    text-decoration: underline;
+    font-size: 0.85rem;
+    transition: opacity 0.2s ease;
+}
+
+.footer__lien-source:hover,
+.footer__lien-source:focus {
+    opacity: 0.7;
+}
+
+.footer__credit {
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #ddd;
+    background-color: #ebebeb;
+}
+
+.footer__credit p {
+    margin: 0;
+    color: #666;
+    font-size: 0.8rem;
+}

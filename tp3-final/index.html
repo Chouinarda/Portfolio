@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commander une brochure gratuite — Alaïa</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <div class="page-entete">
+      <p class="surtitre">Publication gratuite</p>
+      <h1>Commander une <em>brochure</em> gratuite</h1>
+    </div>
+
+    <main class="formulaire-conteneur">
+      <form action="#" method="post">
+
+        <!-- 1. Format de la brochure -->
+        <fieldset class="groupe groupe--format">
+          <legend class="groupe__legende">
+            <img src="images/icon-format-brochure.svg" alt="" aria-hidden="true" class="groupe__icone" />
+            <span>Format de la brochure</span>
+          </legend>
+          <hr class="groupe__separateur" />
+
+          <ul class="format-liste" role="list">
+            <li class="format-item">
+              <input type="radio" name="format" id="imprime" value="imprime" required />
+              <label for="imprime" class="format-label">
+                <img src="images/icon-file-print.svg" alt="" aria-hidden="true" class="format-icone" />
+                <span>Imprimé</span>
+              </label>
+            </li>
+            <li class="format-item">
+              <input type="radio" name="format" id="pdf" value="pdf" />
+              <label for="pdf" class="format-label">
+                <img src="images/icon-file-pdf.svg" alt="" aria-hidden="true" class="format-icone" />
+                <span>PDF</span>
+              </label>
+            </li>
+            <li class="format-item">
+              <input type="radio" name="format" id="epub" value="epub" />
+              <label for="epub" class="format-label">
+                <img src="images/icon-file-epub.svg" alt="" aria-hidden="true" class="format-icone" />
+                <span>ePub</span>
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <!-- 2. Informations de contact -->
+        <fieldset class="groupe groupe--contact">
+          <legend class="groupe__legende">
+            <img src="images/icon-contact.svg" alt="" aria-hidden="true" class="groupe__icone" />
+            <span>Informations de contact</span>
+          </legend>
+          <hr class="groupe__separateur" />
+
+          <div class="champs-rangee">
+            <div class="champ">
+              <label for="prenom">Prénom</label>
+              <input
+                type="text"
+                id="prenom"
+                name="prenom"
+                required
+                autocomplete="given-name"
+                pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'\- ]*"
+                title="Le prénom peut contenir des lettres, espaces, tirets et apostrophes (ex. Paul-Émile, O'Hara)"
+              />
+            </div>
+            <div class="champ">
+              <label for="nom">Nom</label>
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                required
+                autocomplete="family-name"
+                pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'\- ]*"
+                title="Le nom peut contenir des lettres, espaces, tirets et apostrophes (ex. Viger Tremblay)"
+              />
+            </div>
+          </div>
+
+          <div class="champ">
+            <label for="courriel">
+              Courriel
+              <span class="indicateur">(exemple@domaine.com)</span>
+            </label>
+            <input
+              type="email"
+              id="courriel"
+              name="courriel"
+              required
+              autocomplete="email"
+              placeholder="exemple@domaine.com"
+            />
+          </div>
+
+          <div class="champ">
+            <label>
+              Téléphone
+              <span class="indicateur">(514 555 0123)</span>
+            </label>
+            <div class="telephone-groupe">
+              <div class="champ champ--inline">
+                <label for="indicatif" class="visually-hidden">Code régional (3 chiffres)</label>
+                <input
+                  type="tel"
+                  id="indicatif"
+                  name="indicatif"
+                  required
+                  maxlength="3"
+                  pattern="\d{3}"
+                  title="Code régional : 3 chiffres (ex. 514)"
+                  placeholder="514"
+                  aria-label="Code régional (3 chiffres)"
+                />
+              </div>
+              <div class="champ champ--inline">
+                <label for="numero" class="visually-hidden">Numéro (7 chiffres)</label>
+                <input
+                  type="tel"
+                  id="numero"
+                  name="numero"
+                  required
+                  maxlength="7"
+                  pattern="\d{7}"
+                  title="Numéro de téléphone : 7 chiffres (ex. 5550123)"
+                  placeholder="5550123"
+                  aria-label="Numéro de téléphone (7 chiffres)"
+                />
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 3. Informations postales -->
+        <fieldset class="groupe groupe--postal">
+          <legend class="groupe__legende">
+            <img src="images/icon-postal.svg" alt="" aria-hidden="true" class="groupe__icone" />
+            <span>Informations postales</span>
+          </legend>
+          <hr class="groupe__separateur" />
+
+          <div class="champ">
+            <label for="adresse">
+              Adresse
+              <span class="indicateur">(123, rue Principale)</span>
+            </label>
+            <input
+              type="text"
+              id="adresse"
+              name="adresse"
+              required
+              autocomplete="street-address"
+              placeholder="123, rue Principale"
+            />
+          </div>
+
+          <div class="champs-rangee">
+            <div class="champ">
+              <label for="pays">Pays</label>
+              <select id="pays" name="pays" required autocomplete="country">
+                <option value="">— Sélectionner —</option>
+                <option value="CA">Canada</option>
+                <option value="US">États-Unis</option>
+              </select>
+            </div>
+
+            <div class="champ">
+              <label for="province">Province ou État</label>
+              <select id="province" name="province" required autocomplete="address-level1">
+                <option value="">— Sélectionner —</option>
+                <optgroup label="Canada">
+                  <option value="AB">Alberta</option>
+                  <option value="BC">Colombie-Britannique</option>
+                  <option value="MB">Manitoba</option>
+                  <option value="NB">Nouveau-Brunswick</option>
+                  <option value="NL">Terre-Neuve-et-Labrador</option>
+                  <option value="NS">Nouvelle-Écosse</option>
+                  <option value="NT">Territoires du Nord-Ouest</option>
+                  <option value="NU">Nunavut</option>
+                  <option value="ON">Ontario</option>
+                  <option value="PE">Île-du-Prince-Édouard</option>
+                  <option value="QC">Québec</option>
+                  <option value="SK">Saskatchewan</option>
+                  <option value="YT">Yukon</option>
+                </optgroup>
+                <optgroup label="États-Unis">
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="CA-US">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="FL">Florida</option>
+                  <option value="NY">New York</option>
+                  <option value="TX">Texas</option>
+                  <option value="WA">Washington</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <div class="champ">
+            <label for="codepostal">
+              Code postal
+              <span class="indicateur">(A1A 1A1)</span>
+            </label>
+            <input
+              type="text"
+              id="codepostal"
+              name="codepostal"
+              required
+              autocomplete="postal-code"
+              placeholder="A1A 1A1"
+              pattern="[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d|\d{5}"
+              title="Code postal canadien (A1A 1A1) ou code ZIP américain (11111)"
+            />
+          </div>
+        </fieldset>
+
+        <!-- Case à cocher infolettre -->
+        <div class="groupe groupe--infolettre">
+          <label class="infolettre-label" for="infolettre">
+            <input
+              type="checkbox"
+              id="infolettre"
+              name="infolettre"
+              value="oui"
+            />
+            <span>Je désire recevoir des informations mensuelles par courriel sur les nouvelles publications et ressources disponibles.</span>
+          </label>
+        </div>
+
+        <!-- Bouton de soumission -->
+        <div class="soumission">
+          <button type="submit" class="btn-commander">
+            Commander
+            <img src="images/icon-arrow.svg" alt="" aria-hidden="true" />
+          </button>
+        </div>
+
+      </form>
+    </main>
+
+  </body>
+</html>
